@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>チキンカレー</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 一枚の献立カード。材料表 → 玉ねぎを蒸し炒め → 具を炒める → 煮込む、を左の番号で追う */
+:root{
+  --bg:#f6f4ef; --surface:#fffdf8; --fg:#2a2620; --muted:#6f685c;
+  --line:#e2ddd2; --accent:#a8541f; --accent-soft:#f3e4d6; --tag:#5d6b3a;
+  --display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1b1916; --surface:#24211d; --fg:#ece6da; --muted:#a69e90;
+  --line:#3a352e; --accent:#e08b52; --accent-soft:#3a2a1e; --tag:#a9b97c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1b1916; --surface:#24211d; --fg:#ece6da; --muted:#a69e90;
+  --line:#3a352e; --accent:#e08b52; --accent-soft:#3a2a1e; --tag:#a9b97c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 56px;margin:0}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,7vw,40px);line-height:1.3;margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.meta span{font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface)}
+h2{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 12px;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--body);font-size:13px;color:var(--muted);font-weight:400}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+table{width:100%;border-collapse:collapse}
+td{padding:9px 0;border-bottom:1px dashed var(--line);vertical-align:baseline}
+tr:last-child td{border-bottom:none}
+td.q{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:500}
+.grp td{padding-top:16px;font-size:12px;letter-spacing:.1em;color:var(--tag);font-weight:700;border-bottom:none}
+.grp:first-child td{padding-top:0}
+.tmp{font-size:11px;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:1px 6px;margin-left:6px;font-weight:500}
+.note{font-size:13px;color:var(--muted);margin:12px 0 0}
+ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+li{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:none}
+.n{font-family:var(--display);font-weight:800;font-size:22px;color:var(--accent);line-height:1.4}
+li p{margin:0;min-width:0}
+li b{font-weight:700}
+.point{display:block;margin-top:6px;font-size:14px;color:var(--fg);background:var(--accent-soft);padding:6px 10px;border-radius:6px}
+li.stage{display:block;border-bottom:none;font-size:12px;letter-spacing:.1em;color:var(--tag);font-weight:700;padding:16px 0 4px}
+li.stage:first-child{padding-top:0}
+.back{font-size:14px;color:var(--muted);text-decoration:none;align-self:flex-start}
+.back:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="../index.html">← レシピ一覧</a>
+  <header>
+    <div class="kicker">フライパンで作る</div>
+    <h1>チキンカレー</h1>
+    <div class="meta"><span>水 4カップ</span><span>玉ねぎは蒸し炒め</span><span>油なし</span></div>
+  </header>
+
+  <section>
+    <h2>材料</h2>
+    <div class="card">
+      <table>
+        <tr class="grp"><td colspan="2">具</td></tr>
+        <tr><td>玉ねぎ</td><td class="q">1個</td></tr>
+        <tr><td>じゃがいも</td><td class="q">4個</td></tr>
+        <tr><td>人参</td><td class="q">1本</td></tr>
+        <tr><td>鶏もも肉<span class="tmp">仮</span></td><td class="q">2枚くらい</td></tr>
+        <tr class="grp"><td colspan="2">調味料・水</td></tr>
+        <tr><td>塩</td><td class="q">小さじ1/2</td></tr>
+        <tr><td>水（玉ねぎを蒸す用）</td><td class="q">1/2カップ × 2回</td></tr>
+        <tr><td>水（煮込み用）</td><td class="q">4カップ（800cc）</td></tr>
+        <tr><td>水（仕上げ）<span class="tmp">仮</span></td><td class="q">減った分</td></tr>
+        <tr><td>カレールー<span class="tmp">仮</span></td><td class="q">1/2箱</td></tr>
+      </table>
+      <p class="note">「仮」は分量未定のため目安の量です。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>作り方</h2>
+    <div class="card">
+      <ol>
+        <li class="stage">玉ねぎを蒸し炒めにする</li>
+        <li><span class="n">1</span><p>玉ねぎ1個を<b>みじん切り</b>にする。</p></li>
+        <li><span class="n">2</span><p>フライパンに玉ねぎと塩小さじ1/2を入れて炒める。</p></li>
+        <li><span class="n">3</span><p><b>蓋をして2分</b>蒸す。</p></li>
+        <li><span class="n">4</span><p>水1/2カップを入れ、また蓋をして蒸す。</p></li>
+        <li><span class="n">5</span><p>水がだいたいなくなってきたら、もう一度水1/2カップを入れて蒸す。水気がなくなったら玉ねぎはOK。</p></li>
+        <li class="stage">具を炒める</li>
+        <li><span class="n">6</span><p>じゃがいも4個と人参1本を食べやすい大きさに切ってフライパンに入れ、炒める。</p></li>
+        <li><span class="n">7</span><p>いい感じに炒まってきたら、食べやすく切った鶏もも肉を入れて炒める。</p></li>
+        <li class="stage">煮込む</li>
+        <li><span class="n">8</span><p>水4カップ（800cc）を入れてグツグツ煮る。</p></li>
+        <li><span class="n">9</span><p>いい感じに煮えてきたら<b>カレールー</b>を入れて溶かす。</p></li>
+        <li><span class="n">10</span><p>水が減っていたら足して、さらにグツグツ煮込んだら完成。</p></li>
+      </ol>
+    </div>
+  </section>
+</div>
+</body>
+</html>
